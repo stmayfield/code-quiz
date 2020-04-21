@@ -7,3 +7,53 @@ Componenets:
 >
 >
 >
+
+Framework:
+
+- Bootstrap Framework
+- Heading <h1>: ""
+- Buttom Element: "Start Quiz"
+- Heading <h2>: "What is the first question going to be?"...
+    - Four Buttons Below
+- Timer In Top Left
+        - Begins at 60 seconds
+        - at 0 seconds:
+            - Remove <h2>: "What is the first question going to be?"...
+            - Replace <h2> with: "Time's up"
+            - 4 buttons removed
+            - 1 button/link with text "Next Question"
+            - If fifth question, Button/link text "View your score"
+            - Displays elements with amount right out of 5
+            - Store number correct and display in ordered list 
+
+
+Questions and Answers:
+
+1. What is the first question going to be?
+    a.
+    b.
+    c.
+    d.
+2. What is the second question going to be?
+    a.
+    b.
+    c.
+    d.
+3. What is the third question going to be?
+    a.
+    b.
+    c.
+    d.
+4. What is the fourth question going to be?
+    a.
+    b.
+    c.
+    d.
+5. What is the fifth question going to be?
+    a.
+    b.
+    c.
+    d.
+
+
+Pseudocode
