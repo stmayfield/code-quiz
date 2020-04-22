@@ -1,7 +1,6 @@
 var button = document.querySelector("#btnStart");
 var counter = document.querySelector("#counter");
 button.addEventListener("click", function () { });
-
 var totalTime = 10
 
 var timer = setInterval(startTimer, 1000);
@@ -18,4 +17,6 @@ function startTimer() {
 };
 
 
-var timeHead = document.body.firstElementChild.childNodes[1].childNodes[3]
+button.addEventListener("click", function () {
+    alert("Test");
+});
