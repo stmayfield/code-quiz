@@ -33,53 +33,90 @@ activateTimer();
 var quizBlock = document.querySelector(".div2");
 // var answer1 = document.querySelector("#answer-one");
 
-var ans1 = document.createElement("p")
-ans1.setAttribute("id", "answer-one")
-ans1.textContent = "Replacement text 1";
-quizBlock.appendChild(ans1)
 
-var ans5 = document.createElement("p")
-ans5.setAttribute("id", "answer-five")
-ans5.textContent = "Replacement text 5";
-quizBlock.appendChild(ans5)
+function firstAnswer(input, validate, boolean) {
+    var answer1 = document.createElement("p");
+    answer1.setAttribute("id", "answer-one");
+    answer1.textContent = input;
+    quizBlock.appendChild(answer1);
+    answer1.addEventListener("click", function () {
+        alert(validate);
+        answerPass = boolean;
+    });
+};
 
-var answer2 = document.querySelector("#answer-two");
-var answer3 = document.querySelector("#answer-three");
-var answer4 = document.querySelector("#answer-four");
+function secondAnswer(input, validate, boolean) {
+    var answer2 = document.createElement("p");
+    answer2.setAttribute("id", "answer-two");
+    answer2.textContent = input;
+    quizBlock.appendChild(answer2);
+    answer2.addEventListener("click", function () {
+        alert(validate);
+        answerPass = boolean;
+    });
+};
+
+function thirdAnswer(input, validate, boolean) {
+    var answer3 = document.createElement("p");
+    answer3.setAttribute("id", "answer-three");
+    answer3.textContent = input;
+    quizBlock.appendChild(answer3);
+    answer3.addEventListener("click", function () {
+        alert(validate);
+        answerPass = boolean;
+    });
+};
+
+function fourthAnswer(input, validate, boolean) {
+    var answer4 = document.createElement("p");
+    answer4.setAttribute("id", "answer-four");
+    answer4.textContent = input;
+    quizBlock.appendChild(answer4);
+    answer4.addEventListener("click", function () {
+        alert(validate);
+        answerPass = boolean;
+    });
+};
 
 
+// for (var i = 0; i < 4, i++) {
+// };
+
+
+var correct = "Correct";
+var incorrect = "Incorrect";
+var answerPass;
+var score = 0
+
+firstAnswer("Replacement Text 1", incorrect, false);
+secondAnswer("Replacement Text 2", correct, true);
+thirdAnswer("Replacement Text 3", incorrect, false);
+fourthAnswer("Replacement Text 4", incorrect, false);
+
+if (answerPass === true) {
+    //change Correct answer to green
+    answer1.style.color = "green"
+
+};
+
+
+
+//if answerpass === correct, then next
 
 quizBlock.hidden = false;
 // answer1.textContent = "[LEGACY]Replacement text 1";
-answer2.textContent = "Replacement text 2";
-answer3.textContent = "Replacement text 3";
-answer4.textContent = "Replacement text 4";
-
-
-ans1.addEventListener("click", function () {
-    alert("incorrect");
-});
-answer2.addEventListener("click", function () {
-    alert("COreccet!");
-});
-answer3.addEventListener("click", function () {
-    alert("incorrect");
-});
-answer4.addEventListener("click", function () {
-    alert("incorrect");
-});
-
-
-
-quizBlock.replaceChild(ans5, ans1);
 
 
 
 
 //Button animation
-button01.addEventListener("mouseover", function () {
-    button01.setAttribute("src", "assets/Button01-02.svg");
-});
-button01.addEventListener("mouseout", function () {
-    button01.setAttribute("src", "assets/Button01-01.svg");
-});
+
+function animateButton01() {
+    button01.addEventListener("mouseover", function () {
+        button01.setAttribute("src", "assets/Button01-02.svg");
+    });
+    button01.addEventListener("mouseout", function () {
+        button01.setAttribute("src", "assets/Button01-01.svg");
+    });
+}
+animateButton01();
