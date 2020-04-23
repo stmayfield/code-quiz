@@ -65,3 +65,64 @@ Pseudocode
 
 Notes:
 
+var button01 = document.querySelector("#btnStart");
+var counter = document.querySelector("#counter");
+var timesUp = counter.parentElement;
+var mouseOver = document.querySelector(".custom-button");
+button01.addEventListener("click", function () { });
+var totalTime = 11
+
+
+
+//Activate Timer
+function activateTimer() {
+    button01.addEventListener("click", function () {
+        setInterval(startTimer, 1000);
+    });
+
+};
+
+//Display totalTime every interval, return string when totalTime equals 0
+function startTimer() {
+    totalTime--;
+    counter.innerHTML = totalTime
+
+    if (totalTime === 0) {
+        clearInterval(setInterval(startTimer, 1000));
+        timesUp.innerHTML = "Time's Up!";
+
+    };
+};
+
+activateTimer();
+
+timesUp.remove();
+
+
+
+// button01.addEventListener("click", function () {
+//     if (timesUp === "Time's Up!") {
+//         timesUp.remove()
+//     }
+
+// });
+
+
+/*
+when total time === 0,
+
+allow option to reset
+
+When reset active, click event trigger reset
+
+Reset > Return 'Time's Up' back to original 'time:'
+remove counter.parentElement.innerHTML = "Time's Up!"
+
+
+
+begin setInterval start timer again
+run activateTimer();
+
+*/
+
+
