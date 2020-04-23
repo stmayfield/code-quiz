@@ -114,7 +114,6 @@ function questionOne() {
     if (answerPass === true) {
         //change Correct answer to green
         alert("true");
-
     };
 }
 
@@ -127,21 +126,23 @@ function questionTwo() {
     fourthAnswer("QUESTION 2 Replacement Text 4", correct, true);
 }
 
-
+//after start clicked, trigger questionOne()
 questionOne();
+//after correct answer is clicked, then add 1 to run, reset()
+//after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
 reset();
+//trigger questionTwo()
 questionTwo();
-// reset();
-
-// quizBlock.replaceChild(q2A1, q1A1);
-// quizBlock.replaceChild(q2A2, q1A2);
-// quizBlock.replaceChild(q2A3, q1A3);
-// quizBlock.replaceChild(q2A4, q1A4);
-
-
+//after correct answer is clicked, then add 1 to run, reset()
+//after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
+reset();
+//at end of last question, display score, form for initials
+//store initials and score in localStorage
+//Display score in new </div>
 
 
-//if answerpass === correct, then next
+
+
 
 
 //Button animation
@@ -155,3 +156,6 @@ function animateButton01() {
     });
 }
 animateButton01();
+
+
+//bonus: feed questions and answers into variables from outside sources? API?
