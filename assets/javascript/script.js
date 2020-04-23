@@ -30,7 +30,14 @@ activateTimer();
 //     block
 // };
 
+var correct = "Correct";
+var incorrect = "Incorrect";
+var answerPass;
+var score = 0
+
 var quizBlock = document.querySelector(".div2");
+quizBlock.hidden = false;
+
 // var answer1 = document.querySelector("#answer-one");
 
 
@@ -79,34 +86,62 @@ function fourthAnswer(input, validate, boolean) {
 };
 
 
-// for (var i = 0; i < 4, i++) {
-// };
+function questionAsk(input) {
+    var question1 = document.createElement("h3");
+    question1.setAttribute("id", "question");
+    question1.textContent = input;
+    quizBlock.appendChild(question1);
+}
 
 
-var correct = "Correct";
-var incorrect = "Incorrect";
-var answerPass;
-var score = 0
+//Question 1 answers options
 
-firstAnswer("Replacement Text 1", incorrect, false);
-secondAnswer("Replacement Text 2", correct, true);
-thirdAnswer("Replacement Text 3", incorrect, false);
-fourthAnswer("Replacement Text 4", incorrect, false);
 
-if (answerPass === true) {
-    //change Correct answer to green
-    answer1.style.color = "green"
 
+//Remove elements
+function reset() {
+    for (i = 0; i < 5; i++) {
+        quizBlock.removeChild(quizBlock.childNodes[11])
+    }
 };
+
+function questionOne() {
+    questionAsk("Question 1: What is the first question?");
+    firstAnswer("Replacement Text 1", incorrect, false);
+    secondAnswer("Replacement Text 2", correct, true);
+    thirdAnswer("Replacement Text 3", incorrect, false);
+    fourthAnswer("Replacement Text 4", incorrect, false);
+    if (answerPass === true) {
+        //change Correct answer to green
+        alert("true");
+
+    };
+}
+
+//Question 2 answer options
+function questionTwo() {
+    questionAsk("Question 2: What is the second question?");
+    firstAnswer("QUESTION 2 Replacement Text 1", incorrect, false);
+    secondAnswer("QUESTION 2 Replacement Text 2", incorrect, false);
+    thirdAnswer("QUESTION 2 Replacement Text 3", incorrect, false);
+    fourthAnswer("QUESTION 2 Replacement Text 4", correct, true);
+}
+
+
+questionOne();
+reset();
+questionTwo();
+// reset();
+
+// quizBlock.replaceChild(q2A1, q1A1);
+// quizBlock.replaceChild(q2A2, q1A2);
+// quizBlock.replaceChild(q2A3, q1A3);
+// quizBlock.replaceChild(q2A4, q1A4);
+
 
 
 
 //if answerpass === correct, then next
-
-quizBlock.hidden = false;
-// answer1.textContent = "[LEGACY]Replacement text 1";
-
-
 
 
 //Button animation
