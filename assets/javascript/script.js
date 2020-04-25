@@ -2,31 +2,13 @@ var button01 = document.querySelector("#btnStart");
 var counter = document.querySelector("#counter");
 var mouseOver = document.querySelector(".custom-button");
 var countMessage = counter.parentElement;
-var totalTime = 6
+var totalTime = 61
 
 var testText = document.querySelector("#test-area");
 
 
 
-// function startTimer() {
-//     totalTime--;
-//     counter.innerHTML = totalTime
-
-//     if (totalTime === 0) {
-//         clearInterval(setInterval(startTimer, 1000))
-//         countMessage.innerHTML = "Time's Up!"
-//     }
-// };
-
-
-// function activateTimer() {
-//     button01.addEventListener("click", function timer() {
-//         setInterval(startTimer, 1000);
-//         // startQuiz();
-//     });
-// };
-
-
+// Timer begins when "Start Quiz" button01 is pushed
 function startTimer() {
     var interval = setInterval(countdown, 1000);
 
@@ -44,15 +26,16 @@ function startTimer() {
     }
 
 }
-
 button01.addEventListener("click", startTimer);
 
-
+// Test Button testBttn subtracts 10 from interval
 var testBttn = document.querySelector("#test-button");
 
 function subtractTime() {
-    code
-}
+    totalTime = totalTime - 10;
+};
+
+testBttn.addEventListener("click", subtractTime);
 
 
 var correct = "Correct";
