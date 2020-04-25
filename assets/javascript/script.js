@@ -4,31 +4,56 @@ var mouseOver = document.querySelector(".custom-button");
 var countMessage = counter.parentElement;
 var totalTime = 6
 
+var testText = document.querySelector("#test-area");
 
 
 
-function activateTimer() {
-    button01.addEventListener("click", function timer() {
-        setInterval(startTimer, 1000);
-        // startQuiz();
-    });
-};
+// function startTimer() {
+//     totalTime--;
+//     counter.innerHTML = totalTime
+
+//     if (totalTime === 0) {
+//         clearInterval(setInterval(startTimer, 1000))
+//         countMessage.innerHTML = "Time's Up!"
+//     }
+// };
+
+
+// function activateTimer() {
+//     button01.addEventListener("click", function timer() {
+//         setInterval(startTimer, 1000);
+//         // startQuiz();
+//     });
+// };
+
 
 function startTimer() {
-    totalTime--;
-    counter.innerHTML = totalTime
+    var interval = setInterval(countdown, 1000);
 
-    if (totalTime === 0) {
-        clearInterval(setInterval(startTimer, 1000))
+    function countdown() {
+        totalTime--;
+        counter.innerHTML = totalTime;
+
+        if (totalTime === 0) {
+            stopTimer();
+        }
+    }
+    function stopTimer() {
+        clearInterval(interval)
         countMessage.innerHTML = "Time's Up!"
     }
-};
 
-activateTimer();
+}
 
-// function startQuiz() {
-//     block
-// };
+button01.addEventListener("click", startTimer);
+
+
+var testBttn = document.querySelector("#test-button");
+
+function subtractTime() {
+    code
+}
+
 
 var correct = "Correct";
 var incorrect = "Incorrect";

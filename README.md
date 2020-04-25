@@ -6,9 +6,9 @@
 
 The following will be submitted for review:
 
-* [Github.com: Deployed Application](https://stmayfield.github.io/code-quiz/)
+* [Github.io: Deployed Application](https://stmayfield.github.io/code-quiz/)
 
-* [Github.io: Repository](https://github.com/stmayfield/code-quiz)
+* [Github.com: Repository](https://github.com/stmayfield/code-quiz)
 
 - - -
 
