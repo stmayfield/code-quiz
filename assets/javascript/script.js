@@ -1,11 +1,29 @@
-var button01 = document.querySelector("#btnStart");
+var firstPage = document.querySelector(".div3");
 var counter = document.querySelector("#counter");
 var mouseOver = document.querySelector(".custom-button");
 var countMessage = counter.parentElement;
 var totalTime = 61
 
-var testText = document.querySelector("#test-area");
+var button01 = document.createElement("img");
+button01.setAttribute("class", "custom-button");
+button01.setAttribute("id", "btnStart");
+button01.setAttribute("src", "assets/Button01-01.svg");
+button01.setAttribute("height", "35px");
+firstPage.appendChild(button01);
 
+var button02 = document.createElement("img");
+button02.setAttribute("class", "custom-button");
+button02.setAttribute("id", "btnStart");
+button02.setAttribute("src", "assets/Button01-01.svg");
+button02.setAttribute("height", "35px");
+firstPage.appendChild(button02);
+button02.hidden = true;
+
+
+
+//on click, validate, then unhide
+// green if true click
+// red if false click
 
 
 // Timer begins when "Start Quiz" button01 is pushed
@@ -26,17 +44,22 @@ function startTimer() {
     }
 
 }
-button01.addEventListener("click", startTimer);
+button01.addEventListener("click", beginQuiz);
 
-// Test Button testBttn subtracts 10 from interval
-var testBttn = document.querySelector("#test-button");
+function beginQuiz() {
+    startTimer();
+    questionOne();
+    button01.remove();
+    button02.hidden = false;
+
+}
+
 
 function subtractTime() {
     totalTime = totalTime - 10;
 };
 
-testBttn.addEventListener("click", subtractTime);
-
+button02.addEventListener("click", subtractTime);
 
 var correct = "Correct";
 var incorrect = "Incorrect";
@@ -48,63 +71,7 @@ quizBlock.hidden = false;
 
 // var answer1 = document.querySelector("#answer-one");
 
-
-function firstAnswer(input, validate, boolean) {
-    var answer1 = document.createElement("p");
-    answer1.setAttribute("id", "answer-one");
-    answer1.textContent = input;
-    quizBlock.appendChild(answer1);
-    answer1.addEventListener("click", function () {
-        alert(validate);
-        answerPass = boolean;
-    });
-};
-
-function secondAnswer(input, validate, boolean) {
-    var answer2 = document.createElement("p");
-    answer2.setAttribute("id", "answer-two");
-    answer2.textContent = input;
-    quizBlock.appendChild(answer2);
-    answer2.addEventListener("click", function () {
-        alert(validate);
-        answerPass = boolean;
-    });
-};
-
-function thirdAnswer(input, validate, boolean) {
-    var answer3 = document.createElement("p");
-    answer3.setAttribute("id", "answer-three");
-    answer3.textContent = input;
-    quizBlock.appendChild(answer3);
-    answer3.addEventListener("click", function () {
-        alert(validate);
-        answerPass = boolean;
-    });
-};
-
-function fourthAnswer(input, validate, boolean) {
-    var answer4 = document.createElement("p");
-    answer4.setAttribute("id", "answer-four");
-    answer4.textContent = input;
-    quizBlock.appendChild(answer4);
-    answer4.addEventListener("click", function () {
-        alert(validate);
-        answerPass = boolean;
-    });
-};
-
-
-function questionAsk(input) {
-    var question1 = document.createElement("h3");
-    question1.setAttribute("id", "question");
-    question1.textContent = input;
-    quizBlock.appendChild(question1);
-}
-
-
 //Question 1 answers options
-
-
 
 //Remove elements
 function reset() {
@@ -134,24 +101,18 @@ function questionTwo() {
     fourthAnswer("QUESTION 2 Replacement Text 4", correct, true);
 }
 
-//after start clicked, trigger questionOne()
-questionOne();
+
 //after correct answer is clicked, then add 1 to run, reset()
 //after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
-reset();
+// reset();
 //trigger questionTwo()
-questionTwo();
+// questionTwo();
 //after correct answer is clicked, then add 1 to run, reset()
 //after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
-reset();
+// reset();
 //at end of last question, display score, form for initials
 //store initials and score in localStorage
 //Display score in new </div>
-
-
-
-
-
 
 //Button animation
 
@@ -163,6 +124,7 @@ function animateButton01() {
         button01.setAttribute("src", "assets/Button01-01.svg");
     });
 }
+
 animateButton01();
 
 

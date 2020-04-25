@@ -12,4 +12,6 @@ The following will be submitted for review:
 
 - - -
 
+- Questions/Answers content provided by Jesse Peterson
+
 - Stephen Mayfield, 2020
