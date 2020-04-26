@@ -10,6 +10,8 @@ Improvements/Bugs Identified:
 
 - General code consolidation and cleanup is needed to improve performance and extend flexibility
 
+- Score tracker is functional but flawed, as it will always grant a point for each correct answer regardless of the number of guesses.
+
 ## Review
 
 The following will be submitted for review:

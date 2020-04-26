@@ -87,7 +87,7 @@ function fourthAnswer(input, boolean, nextQuestion) {
 
 function reset() {
     for (i = 0; i < 5; i++) {
-        quizBlock.removeChild(quizBlock.childNodes[11])
+        quizBlock.removeChild(quizBlock.childNodes[1])
     }
 };
 

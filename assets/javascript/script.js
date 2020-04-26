@@ -93,7 +93,7 @@ function scorePage() {
 
     var scorePage = document.createElement("h3");
     scorePage.setAttribute("id", "question");
-    scorePage.textContent = "Your score is: " + score;
+    scorePage.textContent = "Your score is: " + score + " out of 9";
     div4.appendChild(scorePage);
     alertGreen.hidden = true;
     alertRed.hidden = true;
@@ -137,7 +137,6 @@ function retryQuiz() {
     retry = document.getElementById("retry");
     retry.addEventListener("click", reset)
     retry.addEventListener("click", beginQuiz)
-    totalTime = 91
 }
 
 retryQuiz();
