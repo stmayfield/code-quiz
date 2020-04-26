@@ -1,11 +1,11 @@
 function questionAsk(input) {
-    var question1 = document.createElement("h3");
-    question1.setAttribute("id", "question");
-    question1.textContent = input;
-    quizBlock.appendChild(question1);
+    var question = document.createElement("h3");
+    question.setAttribute("id", "question");
+    question.textContent = input;
+    quizBlock.appendChild(question);
 }
 
-function firstAnswer(input, validate, boolean) {
+function firstAnswer(input, validate, boolean, nextQuestion) {
     var answer1 = document.createElement("p");
     answer1.setAttribute("id", "answer-one");
     answer1.textContent = input;
@@ -13,12 +13,15 @@ function firstAnswer(input, validate, boolean) {
     answer1.addEventListener("click", function () {
         alert(validate);
         answerPass = boolean;
+        if (answerPass === true) {
+            nextQuestion();
+        } else if (answerPass !== true) {
+            subtractTime();
+        }
     });
 };
 
-
-
-function secondAnswer(input, validate, boolean) {
+function secondAnswer(input, validate, boolean, nextQuestion) {
     var answer2 = document.createElement("p");
     answer2.setAttribute("id", "answer-two");
     answer2.textContent = input;
@@ -26,10 +29,15 @@ function secondAnswer(input, validate, boolean) {
     answer2.addEventListener("click", function () {
         alert(validate);
         answerPass = boolean;
+        if (answerPass === true) {
+            nextQuestion();
+        } else if (answerPass !== true) {
+            subtractTime();
+        }
     });
 };
 
-function thirdAnswer(input, validate, boolean) {
+function thirdAnswer(input, validate, boolean, nextQuestion) {
     var answer3 = document.createElement("p");
     answer3.setAttribute("id", "answer-three");
     answer3.textContent = input;
@@ -37,10 +45,15 @@ function thirdAnswer(input, validate, boolean) {
     answer3.addEventListener("click", function () {
         alert(validate);
         answerPass = boolean;
+        if (answerPass === true) {
+            nextQuestion();
+        } else if (answerPass !== true) {
+            subtractTime();
+        }
     });
 };
 
-function fourthAnswer(input, validate, boolean) {
+function fourthAnswer(input, validate, boolean, nextQuestion) {
     var answer4 = document.createElement("p");
     answer4.setAttribute("id", "answer-four");
     answer4.textContent = input;
@@ -48,6 +61,11 @@ function fourthAnswer(input, validate, boolean) {
     answer4.addEventListener("click", function () {
         alert(validate);
         answerPass = boolean;
+        if (answerPass === true) {
+            nextQuestion();
+        } else if (answerPass !== true) {
+            subtractTime();
+        }
     });
 };
 

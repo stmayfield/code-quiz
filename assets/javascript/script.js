@@ -1,6 +1,9 @@
 var firstPage = document.querySelector(".div3");
 var counter = document.querySelector("#counter");
 var mouseOver = document.querySelector(".custom-button");
+var alertDiv = document.body.firstElementChild.firstElementChild;
+var div2 = document.querySelector(".div2")
+var div4 = document.querySelector(".div4")
 var countMessage = counter.parentElement;
 var totalTime = 61
 
@@ -19,6 +22,21 @@ button02.setAttribute("height", "35px");
 firstPage.appendChild(button02);
 button02.hidden = true;
 
+var alertGreen = document.createElement("div");
+alertGreen.setAttribute("class", "alert alert-success");
+alertGreen.setAttribute("role", "alert");
+alertGreen.textContent = "A simple success alert—check it out!";
+alertDiv.appendChild(alertGreen);
+alertGreen.hidden = true;
+
+
+var alertRed = document.createElement("div");
+alertRed.setAttribute("class", "alert alert-danger");
+alertRed.setAttribute("role", "alert");
+alertRed.textContent = "A simple danger alert—check it out!";
+alertDiv.appendChild(alertRed);
+alertRed.hidden = true;
+
 
 
 //on click, validate, then unhide
@@ -34,25 +52,37 @@ function startTimer() {
         totalTime--;
         counter.innerHTML = totalTime;
 
-        if (totalTime === 0) {
+        if (totalTime <= 0) {
             stopTimer();
         }
     }
     function stopTimer() {
         clearInterval(interval)
         countMessage.innerHTML = "Time's Up!"
+        countMessage.style.fontSize = "100px"
+        div2.hidden = true
+        div4.hidden = false;
+        scorePage();
     }
 
 }
+
+var initialize = false;
+
+
+
 button01.addEventListener("click", beginQuiz);
 
 function beginQuiz() {
     startTimer();
     questionOne();
     button01.remove();
-    button02.hidden = false;
+    answerPass === false;
+    initialize = true;
 
-}
+};
+
+
 
 
 function subtractTime() {
@@ -83,23 +113,46 @@ function reset() {
 function questionOne() {
     questionAsk("Question 1: What is the first question?");
     firstAnswer("Replacement Text 1", incorrect, false);
-    secondAnswer("Replacement Text 2", correct, true);
+    secondAnswer("Replacement Text 2", correct, true, questionTwo);
     thirdAnswer("Replacement Text 3", incorrect, false);
     fourthAnswer("Replacement Text 4", incorrect, false);
-    if (answerPass === true) {
-        //change Correct answer to green
-        alert("true");
-    };
-}
+};
+
 
 //Question 2 answer options
 function questionTwo() {
+    reset();
     questionAsk("Question 2: What is the second question?");
     firstAnswer("QUESTION 2 Replacement Text 1", incorrect, false);
     secondAnswer("QUESTION 2 Replacement Text 2", incorrect, false);
     thirdAnswer("QUESTION 2 Replacement Text 3", incorrect, false);
-    fourthAnswer("QUESTION 2 Replacement Text 4", correct, true);
+    fourthAnswer("QUESTION 2 Replacement Text 4", correct, true, questionThree);
 }
+
+function questionThree() {
+    reset();
+    questionAsk("Question 1: What is the first question?");
+    firstAnswer("Replacement Text 1", incorrect, false);
+    secondAnswer("Replacement Text 2", incorrect, false);
+    thirdAnswer("Replacement Text 3", incorrect, false);
+    fourthAnswer("Replacement Text 4", incorrect, false);
+}
+
+
+
+// if time <= 0, navigate to score page
+
+
+
+// function scorePage() {
+
+
+//     var scorePage = document.createElement("h3");
+//     var 
+//     scorePage.setAttribute("id", "question");
+//     scorePage.textContent = "Your score is: " + "5";
+//     div4.appendChild(scorePage);
+// }
 
 
 //after correct answer is clicked, then add 1 to run, reset()
@@ -126,6 +179,5 @@ function animateButton01() {
 }
 
 animateButton01();
-
 
 //bonus: feed questions and answers into variables from outside sources? API?
