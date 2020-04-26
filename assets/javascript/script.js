@@ -8,7 +8,6 @@ var countMessage = counter.parentElement;
 var totalTime = 91
 var score = 0
 
-
 var button01 = document.createElement("img");
 button01.setAttribute("class", "custom-button");
 button01.setAttribute("id", "btnStart");
@@ -39,12 +38,6 @@ alertRed.textContent = "Try Again!";
 alertDiv.appendChild(alertRed);
 alertRed.hidden = true;
 
-
-//on click, validate, then unhide
-// green if true click
-// red if false click
-
-
 // Timer begins when "Start Quiz" button01 is pushed
 function startTimer() {
     var interval = setInterval(countdown, 1000);
@@ -70,8 +63,6 @@ function startTimer() {
 
 var initialize = false;
 
-
-
 button01.addEventListener("click", beginQuiz);
 
 function beginQuiz() {
@@ -85,11 +76,7 @@ function beginQuiz() {
 function endQuiz() {
     score += 1;
     totalTime = totalTime - 91
-
 }
-
-
-
 
 function subtractTime() {
     totalTime = totalTime - 10;
@@ -100,27 +87,17 @@ button02.addEventListener("click", subtractTime);
 var answerPass;
 var quizBlock = document.querySelector(".div2");
 quizBlock.hidden = false;
-
-// var answer1 = document.querySelector("#answer-one");
-
-//Question 1 answers options
-
-//Remove elements
-
-
-
-
 div4.hidden = true;
 
 function scorePage() {
-
 
     var scorePage = document.createElement("h3");
     scorePage.setAttribute("id", "question");
     scorePage.textContent = "Your score is: " + score;
     div4.appendChild(scorePage);
+    alertGreen.hidden = true;
+    alertRed.hidden = true;
 }
-
 
 var initials = document.getElementById("initials");
 var scoreLog = document.getElementById("score");
@@ -154,9 +131,7 @@ scoreButton.addEventListener("click", function () {
     }
     entrySet();
     newEntry();
-
 })
-
 
 function retryQuiz() {
     retry = document.getElementById("retry");
@@ -167,23 +142,7 @@ function retryQuiz() {
 
 retryQuiz();
 
-
-
-
-//after correct answer is clicked, then add 1 to run, reset()
-//after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
-// reset();
-//trigger questionTwo()
-// questionTwo();
-//after correct answer is clicked, then add 1 to run, reset()
-//after incorrect answer is clicked, minus 10 seconds from clock (or 1 from score)
-// reset();
-//at end of last question, display score, form for initials
-//store initials and score in localStorage
-//Display score in new </div>
-
 //Button animation
-
 function animateButton01() {
     button01.addEventListener("mouseover", function () {
         button01.setAttribute("src", "assets/Button01-02.svg");
@@ -195,4 +154,3 @@ function animateButton01() {
 
 animateButton01();
 
-//bonus: feed questions and answers into variables from outside sources? API?
