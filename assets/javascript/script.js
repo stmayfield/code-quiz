@@ -5,7 +5,9 @@ var alertDiv = document.body.firstElementChild.firstElementChild;
 var div2 = document.querySelector(".div2")
 var div4 = document.querySelector(".div4")
 var countMessage = counter.parentElement;
-var totalTime = 61
+var totalTime = 91
+var score = 0
+
 
 var button01 = document.createElement("img");
 button01.setAttribute("class", "custom-button");
@@ -25,7 +27,7 @@ button02.hidden = true;
 var alertGreen = document.createElement("div");
 alertGreen.setAttribute("class", "alert alert-success");
 alertGreen.setAttribute("role", "alert");
-alertGreen.textContent = "A simple success alert—check it out!";
+alertGreen.textContent = "Correct!";
 alertDiv.appendChild(alertGreen);
 alertGreen.hidden = true;
 
@@ -33,10 +35,9 @@ alertGreen.hidden = true;
 var alertRed = document.createElement("div");
 alertRed.setAttribute("class", "alert alert-danger");
 alertRed.setAttribute("role", "alert");
-alertRed.textContent = "A simple danger alert—check it out!";
+alertRed.textContent = "Try Again!";
 alertDiv.appendChild(alertRed);
 alertRed.hidden = true;
-
 
 
 //on click, validate, then unhide
@@ -58,8 +59,8 @@ function startTimer() {
     }
     function stopTimer() {
         clearInterval(interval)
-        countMessage.innerHTML = "Time's Up!"
-        countMessage.style.fontSize = "100px"
+        countMessage.innerHTML = "End of Quiz"
+        countMessage.style.fontSize = "75px"
         div2.hidden = true
         div4.hidden = false;
         scorePage();
@@ -79,8 +80,13 @@ function beginQuiz() {
     button01.remove();
     answerPass === false;
     initialize = true;
-
 };
+
+function endQuiz() {
+    score += 1;
+    totalTime = totalTime - 91
+
+}
 
 
 
@@ -91,11 +97,7 @@ function subtractTime() {
 
 button02.addEventListener("click", subtractTime);
 
-var correct = "Correct";
-var incorrect = "Incorrect";
 var answerPass;
-var score = 0
-
 var quizBlock = document.querySelector(".div2");
 quizBlock.hidden = false;
 
@@ -104,55 +106,68 @@ quizBlock.hidden = false;
 //Question 1 answers options
 
 //Remove elements
-function reset() {
-    for (i = 0; i < 5; i++) {
-        quizBlock.removeChild(quizBlock.childNodes[11])
+
+
+
+
+div4.hidden = true;
+
+function scorePage() {
+
+
+    var scorePage = document.createElement("h3");
+    scorePage.setAttribute("id", "question");
+    scorePage.textContent = "Your score is: " + score;
+    div4.appendChild(scorePage);
+}
+
+
+var initials = document.getElementById("initials");
+var scoreLog = document.getElementById("score");
+var scoreButton = document.getElementById("scrButton");
+var retry = document.getElementById("retry");
+var output = document.querySelector(".output");
+var iniList = document.querySelector(".initials-list");
+var scoreList = document.getElementById("score-list");
+var highScores = document.querySelector(".high-scores")
+
+function newEntry() {
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        var ini = localStorage.key(i);
+        var val = localStorage.getItem(ini)
+
+        var scoreLine = document.createElement("div");
+        scoreLine.setAttribute("class", "initials-list");
+        scoreLine.textContent = val + " ";
+        output.appendChild(scoreLine);
     }
-};
-
-function questionOne() {
-    questionAsk("Question 1: What is the first question?");
-    firstAnswer("Replacement Text 1", incorrect, false);
-    secondAnswer("Replacement Text 2", correct, true, questionTwo);
-    thirdAnswer("Replacement Text 3", incorrect, false);
-    fourthAnswer("Replacement Text 4", incorrect, false);
-};
-
-
-//Question 2 answer options
-function questionTwo() {
-    reset();
-    questionAsk("Question 2: What is the second question?");
-    firstAnswer("QUESTION 2 Replacement Text 1", incorrect, false);
-    secondAnswer("QUESTION 2 Replacement Text 2", incorrect, false);
-    thirdAnswer("QUESTION 2 Replacement Text 3", incorrect, false);
-    fourthAnswer("QUESTION 2 Replacement Text 4", correct, true, questionThree);
 }
 
-function questionThree() {
-    reset();
-    questionAsk("Question 1: What is the first question?");
-    firstAnswer("Replacement Text 1", incorrect, false);
-    secondAnswer("Replacement Text 2", incorrect, false);
-    thirdAnswer("Replacement Text 3", incorrect, false);
-    fourthAnswer("Replacement Text 4", incorrect, false);
+scoreButton.addEventListener("click", function () {
+    function entrySet() {
+        var ini = initials.value;
+
+        localStorage.setItem("initials", ini)
+        localStorage.setItem("score", score)
+    }
+    entrySet();
+    newEntry();
+
+})
+
+
+function retryQuiz() {
+    retry = document.getElementById("retry");
+    retry.addEventListener("click", reset)
+    retry.addEventListener("click", beginQuiz)
+    totalTime = 91
 }
 
+retryQuiz();
 
 
-// if time <= 0, navigate to score page
-
-
-
-// function scorePage() {
-
-
-//     var scorePage = document.createElement("h3");
-//     var 
-//     scorePage.setAttribute("id", "question");
-//     scorePage.textContent = "Your score is: " + "5";
-//     div4.appendChild(scorePage);
-// }
 
 
 //after correct answer is clicked, then add 1 to run, reset()

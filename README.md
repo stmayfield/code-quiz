@@ -12,6 +12,6 @@ The following will be submitted for review:
 
 - - -
 
-- Questions/Answers content provided by Jesse Peterson
+- Trivia question sourced from Jesse Peterson
 
 - Stephen Mayfield, 2020
