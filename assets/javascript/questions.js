@@ -120,8 +120,8 @@ function questionThree() {
 function questionFour() {
     reset();
     questionAsk("How many Smash Mouth songs are in the Shrek franchise?");
-    firstAnswer("1", true, questionFive);
-    secondAnswer("2", false);
+    firstAnswer("1", false);
+    secondAnswer("2", true, questionFive);
     thirdAnswer("3", false);
     fourthAnswer("The entire discography", false);
 };
