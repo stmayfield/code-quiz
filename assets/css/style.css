@@ -1,4 +1,39 @@
-.container {
-    text-align: center;
+body {
+    background-color: #F1FBF2;
 }
 
+.container-md {
+    text-align: center;
+    background-color: #F1FBF2;
+
+}
+
+.div1 h1 {
+    font-size: 65px;
+    font-family: 'Girassol', cursive, Helvetica, sans-serif;
+    font-weight: 300;
+     
+}
+
+.div1 h2 {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #053400;
+     
+}
+
+.div2 p{
+border-style: solid;
+border-width: 3px;
+border-color: black;
+font-size: 22px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 300;
+background-color: #C5FCCC;
+}
+
+
+.high-scores {
+    color: black;
+}
