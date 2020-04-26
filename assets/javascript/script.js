@@ -12,7 +12,7 @@ var button01 = document.createElement("img");
 button01.setAttribute("class", "custom-button");
 button01.setAttribute("id", "btnStart");
 button01.setAttribute("src", "assets/Button01-01.svg");
-button01.setAttribute("height", "35px");
+button01.setAttribute("height", "40px");
 firstPage.appendChild(button01);
 
 var button02 = document.createElement("img");
@@ -53,7 +53,7 @@ function startTimer() {
     function stopTimer() {
         clearInterval(interval)
         countMessage.innerHTML = "End of Quiz"
-        countMessage.style.fontSize = "75px"
+        countMessage.style.fontSize = "55px"
         div2.hidden = true
         div4.hidden = false;
         scorePage();
